@@ -1,5 +1,5 @@
 ﻿$Dispositivos = (Get-PnpDevice -Class "Net" -FriendlyName "*Wireless*") | Where-Object { $_.Status -contains "OK" }
-#Write-Output $tarjetas | Sort-Object -Property Caption | Format-List
+
 foreach ($i in $Dispositivos) {
     Write-Output $i.Name, $i.InstanceId, $i.Status
     Disable-PnpDevice -InstanceId $i.InstanceId -PassThru -Confirm:$false
